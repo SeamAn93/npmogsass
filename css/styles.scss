@@ -1,0 +1,144 @@
+@import "colors";
+
+$red: #F00;
+$blue: #00F;
+$padding: 10px 20px;
+$side: left;
+$margin: 15px;
+
+/*$primayColor kommer fra css colors, hvor vi ved hjælp af @import, kan importere styles, fra et anden css.
+Fx kunne vi have alle vores farve stående der inde. Man kunne også have en fx mobil, hvor man have alt
+styling til mobil, i denne css.
+ */
+
+body{
+
+  background-color: $primayColor;
+
+
+}
+
+.test {
+  background-color: $blue;
+
+}
+
+.card{
+
+  background-color: $red;
+  margin-#{$side}: $margin;
+
+
+}
+
+/* mixin bliver brugt til at samle en masse styles. ved at skrive dens tag på andre elementer,
+kan man style et andet element på samme måde, ved kun at skrive et tag/commando*/
+
+@mixin blurText($blur: 5px){
+
+  color: transparent;
+  text-shadow: 0 0 $blur rgba(0, 0, 0, 0.5);
+
+}
+
+/* blurtext commanden er her sat til at være 5px som standard. Hvis man vil have en højere eller mindre værdi,
+på et andet element, skriver man det efter taget --> se boks2*/
+
+.boks{
+
+  font-size: 50px;
+  @include blurText;
+
+}
+
+.boks2{
+
+  font-size: 50px;
+  @include blurText(20px);
+
+}
+
+/* extend kan man kopier styles fra en anden class. Herefter kan man tilføje ekstra styles til elementet.*/
+
+.boks3{
+
+  @extend .boks;
+
+}
+
+/* Med nesting, styles indeni den block. Det gør, at vi hurtig kan se, hvor henne der er stylet,
+og at alt styling på en block, og/eller elementer, er samlet et sted. på css.
+ */
+
+header{
+
+  background-color: darkblue;
+
+  .text{
+
+    color: darkorange;
+
+    ul{
+
+      li{
+
+        font-size: 100px;
+
+        &:nth-of-type(3){
+
+          background-color: darkviolet;
+
+        }
+
+      }
+
+    }
+
+  }
+
+
+}
+
+/* Men kan bruge matematik til at lave commans som kan plus, minus, dividere elelr gange fx med padding herunder */
+
+$paddingDefault: 25px;
+.padding{
+  padding: $paddingDefault;
+
+  &Double{
+    padding: $paddingDefault * 2;
+  }
+
+  &Half{
+    padding: $paddingDefault / 2;
+  }
+}
+
+nav{
+
+  background-color: aliceblue;
+  line-height: 60px;
+  height: 50px;
+
+}
+
+/* her er matematik brugt til at sørge for, at nav kan ligge sammen med section, så det fylder hele skærmen.
+Altså der komme ikke en scroll menu i siden.*/
+
+section{
+
+  background-color: green;
+  /* height: 100vh; */
+  height: calc(100vh - 60px);
+
+}
+
+/* Udover det viste finde der også nogle matematiske funktioner i SASS, som I kan kigge nærmere på:
+abs($num) - absolute value
+ceil($num) - round up to closest whole number
+floor($num) - round down to closest whole number
+percentage($num) - convert to percentage
+round($num) - round to closest whole number
+max($list) - maximum list value
+min($list) - minimum list value */
+

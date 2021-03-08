@@ -1,0 +1,47 @@
+/*functioner der skal med */
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+/*her kan vi lave om i bootstraps farver ved at ændre deres tags farver fx primay eller lave vores helt egen
+fx med logocolor tag */
+
+$custom-colors: (
+  "primay": #ffff90,
+  "logocolor": #009000,
+
+);
+
+/* Herunder merger vi dem, så vores custom farver nu kan bruges */
+/* Dette setup (alt koden her på siden bootstrap.scss kan kopiers og genbruges */
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+/* Herunder er hvordan man kan sætter mediaqueries op. Her kan man bruge nesting metoden,
+i stedet for at lave en sektion til for en bestemt mediaquerie. Man kan dog også lave det
+på den tidligere måde, med bootstrap elementerne. */
+
+$tablet: "screen and (min-width: 768px)";
+$desktop: "screen and (min-width: 1200px)";
+
+.mediaqueries{
+
+  width: 100%;
+  background-color: rgba(255,20,150,0.95);
+  height: 150px;
+  
+  @media #{$tablet}{
+
+    width: 50%;
+    
+  }
+
+  @media #{$desktop}{
+
+    width: 25%;
+
+  }
+}
+
+@import "../node_modules/bootstrap/scss/bootstrap";

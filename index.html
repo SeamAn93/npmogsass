@@ -1,0 +1,105 @@
+<!-- Instruktion til webbrowser om at vi kører HTML5 -->
+<!DOCTYPE html>
+
+<!-- html starter og slutter hele dokumentet / lang=da: Fortæller siden er på dansk -->
+<html lang="da">
+
+<!-- I <head> har man opsætning - det ser brugeren ikke, men det fortæller noget om siden -->
+<head>
+    <!-- Sætter tegnsætning til utf-8 som bl.a. tillader danske bogstaver -->
+    <meta charset="utf-8">
+
+    <!-- Titel som ses oppe i browserens tab mv. -->
+    <title>Sigende titel</title>
+
+    <!-- Metatags der fortæller at søgemaskiner er velkomne, hvem der udgiver siden og copyright information -->
+    <meta name="robots" content="All">
+    <meta name="author" content="Udgiver">
+    <meta name="copyright" content="Information om copyright">
+
+    <!-- Sikrer man kan benytte CSS ved at tilkoble en CSS fil -->
+    <!-- får bootstrap til at kører på siden -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+
+    <!-- Sikrer den vises korrekt på mobil, tablet mv. ved at tage ift. skærmstørrelse - bliver brugt til responsive websider -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<!-- i <body> har man alt indhold på siden som brugeren kan se -->
+<body>
+<!-- får java til at kører på siden -->
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<div class="container">
+
+    <div class="row">
+
+        <!-- på class herunder, er div delt op i tre størrelse (mobil-tablet-desktop).
+        Husk, at bootstrap grid er delt op i 12 colums, hvilket vil sige at col-12 betyder
+        at det fylder alle 12 colums => hele siden. Se opdeling på getbootstrap.com -->
+
+        <div class="col-12 col-md col-xl-3">
+            <div class="bg-secondary">Grid</div>
+        </div>
+        <div class="col-12 col-md col-xl-3">
+            <div class="bg-danger">Grid</div>
+        </div>
+        <div class="col-12 col-md col-xl-3">
+            <div class="bg-primary">Grid</div>
+        </div>
+        <div class="col-12 col-md col-xl-3">
+            <div class="bg-success">Grid</div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- container gør, at siden fylder hele skærmen op til en hvis størrelse fx 960px.
+Op efter vil der kommer whitespace i siderne, altså indhold fylder max 960px. (getbootstrap.com)-->
+
+<div class="container-lg">
+
+<header>
+    <div class="header__list">
+        <ul>
+            <li>abe</li>
+            <li>abe</li>
+            <li>abe</li>
+            <li>abe</li>
+            <li>abe</li>
+        </ul>
+    </div>
+
+    <div class="header__list">
+        <ul>
+            <li>abe</li>
+            <li>abe</li>
+            <li>abe</li>
+            <li>abe</li>
+            <li>abe</li>
+        </ul>
+    </div>
+
+</header>
+
+<nav>Menu</nav>
+<section>Indhold</section>
+
+<div class="boks">Pas på vovsen der Walter!</div>
+<div class="boks2">Op på fars hat.</div>
+<div class="boks3">At dreje Walter!</div>
+
+<!-- Test af bootstrap, med at bruger deres farver setup.
+Farvernes classer kan ses på https://getbootstrap.com/docs/5.0/getting-started/introduction/ -->
+
+<div class="bg-primary">test af bootstrap farver (standard)</div>
+<div class="bg-logocolor">test af bootstrap farver (custom color)</div>
+
+</div>
+
+<div class="mediaqueries">Mit navn er Allan</div>
+
+</body>
+</html>
